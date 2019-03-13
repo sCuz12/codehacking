@@ -30,8 +30,16 @@ class UsersRequest extends FormRequest
             'email'=>'required',
             'role_id'=>'required',
             'is_active'=>'required',
-            'password' =>'required'
+
+
 
         ];
+
+        if($this->method() == 'POST'){
+            $rules['password'] = 'required';
+        }
+
+        return $rules;
+
     }
 }
